@@ -8,7 +8,7 @@ usemathjax: true
 
 Canadian municipal politics is arguably the most important form of politics to those who live in the jurisdiction, but it can also be impenetrable to outsiders due to the lack of parties, platforms, and the highly specific local issues that are debated. Could we determine which voting blocs exist without this information? Can we determine which politicians make compromises and which refuse to bend?
 
-I  wrote a clustering algorithm to group councillors based their voting records, developed it with Toronto data and evaluated it with Calgary data, and you can see the jupyter notebook [here](https://github.com/mccarthy17mark/councillors/blob/master/councillor_clustering.ipynb). This is, in a sense, a continuation of the analysis being done in my [previous post]().
+I  wrote a clustering algorithm to group councillors based their voting records, developed it with Toronto data and evaluated it with Calgary data, and you can see the jupyter notebook [here](https://github.com/mccarthy17mark/councillors/blob/master/councillor_clustering.ipynb). This is, in a sense, a continuation of the analysis being done in my [previous post](https://mccarthy17mark.github.io/2024/01/12/councillorAbsenteeism.html).
 
 For the technically-minded reader, the clustering algorithm was a heirarchichal agglomerative clustering using a Bayesian probability of the councillors within the group not being unanimous as the objective function to be minimized. Some analysis is done to identify how a binomial distribution can reasonably be applied to the data despite not having any knowledge of the issues being voted upon. Lastly, the Hartigan-Wong algorithm was applied to ensure we were at a (at least local) minimum.
 

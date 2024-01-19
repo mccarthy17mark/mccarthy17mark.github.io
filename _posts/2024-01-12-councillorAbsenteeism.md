@@ -68,7 +68,7 @@ Our dataset also includes the time of the meeting, so let's see if there are any
 
 Looks like our councillors are early-birds, not night owls!
 
-There is more we could do with these data, but now that I have my feet wet, it's time to tackle a more complex analysis in the [next blog post]()... 
+There is more we could do with these data, but now that I have my feet wet, it's time to tackle a more complex analysis in the [next blog post](https://mccarthy17mark.github.io/2024/01/17/councillorClustering.html)... 
 
 [//]: # (This may be the most platform independent comment)
 
