@@ -10,12 +10,20 @@
   {%- endif -%}
   <!-- for mathjax support -->
   {% if page.usemathjax %}
+  <script>
+    MathJax = {
+	tex: {
+	    inlineMath: [['$', '$'], ['\\(', '\\)']]
+	}
+    };
+  </script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
 	TeX: {
 	    equationNumbers: {
 		autoNumber: "AMS"
 	    }
+	    inlineMath: [['$', '$']]
 	},
 	tex2jax: {
 	    inlineMath: [ ['$','$'] ],
