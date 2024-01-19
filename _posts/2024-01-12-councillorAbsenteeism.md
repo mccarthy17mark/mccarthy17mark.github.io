@@ -15,7 +15,11 @@ I wanted to begin with a simple dataset to estabilish some familiarity with the 
 
 One important caveat of these data is that there are sometimes legitimate reasons why a councillor might not be present. For example, if a councillor has a conflict-of-interest in a meeting, being 'absent' would be a good thing! Additionally, not all meetings are created equal, and some might be considered trivial or irrelevant to certain councillors. The answers to these kinds of judgements won't come from the data, but analyzing the data gives us a good starting point.
 
+<br>
+
 ---
+
+<br>
 
 Our data looks something like this:
 
