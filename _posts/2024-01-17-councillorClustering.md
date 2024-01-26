@@ -12,13 +12,25 @@ I  wrote a clustering algorithm to group councillors based their voting records,
 
 For the technically-minded reader, the clustering algorithm was a heirarchichal agglomerative clustering using a Bayesian probability of the councillors within the group not being unanimous as the objective function to be minimized. Some analysis is done to identify how a binomial distribution can reasonably be applied to the data despite not having any knowledge of the issues being voted upon. Lastly, the Hartigan-Wong algorithm was applied to ensure we were at a (at least local) minimum.
 
+[Overview](#overview)
+
+[Initial Exploratory Data Analysis](#exploration)
+
+[Deriving Clustering Metrics](#clustering_metrics)
+
+[Implementation](#implementation)
+
+[Hartigan-Wong](#hartigan-wong)
+
+[Final Clusters](#final_clusters)
+
 <br>
 
 ---
 
 <br>
 
-### Overview
+### <a name="overview"></a> Overview
 
 Many municipalities have open source data available on a very wide number of topics. For example, in Toronto you can find data on everything from all public city-provided wifi, to red-light camera locations, to restaurant food inspection results. Here are the data for [Toronto](https://open.toronto.ca/) and [Calgary](https://data.calgary.ca/). Here I've used the data listing how councillors voted in all recorded city council meetings.
 
@@ -32,7 +44,7 @@ Unfortunately we see that there is a substantial difference between the two data
 
 <br>
 
-### Initial Exploratory Data Analysis
+### <a name="exploration"></a> Initial Exploratory Data Analysis
 
 This is what our data looks like for Toronto:
 
@@ -110,7 +122,7 @@ So what's the most commonly skipped motion? It's `Extend Speaking Time` at almos
 
 <br>
 
-### Clustering Metrics
+### <a name="clustering_metrics"></a> Clustering Metrics
 
 #### Pair-wise councillor similarity
 
@@ -188,7 +200,7 @@ $$\hat{A}_{AB} = \frac{a_{AB} + 0.25}{n_{AB} + 2}$$
 
 <br>
 
-### Performing the clustering
+### <a name="implementation"></a> Implementing the clustering
 
 We next compare every pair of councillors and determine how likely they are to agree, and form this into a similarity matrix.
 
@@ -227,7 +239,7 @@ That looks alright, though it's not always good to see so many lonely clusters o
 
 <br>
 
-### Hartigan-Wong Method
+### <a name="hartigan-wong"></a> Hartigan-Wong Method
 
 An agglomerative clustering like this should work well when starting from an uninformed starting point to get us to a set of clusters that work okay, but the Hartigan-Wong method is the perfect way for pushing us from near a minimum to precisely finding that minimum. This method works by the following: we consider whether moving a councillor from one cluster to another reduces the objective function. If the answer is yes, then we do the move and repeat our search. In this implementation I made the first improving moves found, which is the fastest way to do this computationally. An alternative would be to search through all improving moves and make the move that improves the objective function the most. This best-move approach is more robust, but much slower. The first-move approach should be fine since we're starting from what should be a relatively reliable clustering, so we're unlikely to fall into any local minima.
 
@@ -237,7 +249,7 @@ An agglomerative clustering like this should work well when starting from an uni
 
 <br>
 
-### The Final Clusters
+### <a name="final_clusters"></a> The Final Clusters
 
 Now that we're happy all our councillors are where they belong, let's try to visualize the new clusters. We can do this with a graph, where the distance between each councillor (the nodes) is influenced by the the pair-wise agreement matrix, and the colour of each councillor-node is coloured based on the cluster they ended up in. Note that our clusters care about group unanimity, which is a different thing from how often each pair of councillors agreed. This means that the position on the graph and the clusters shouldn't agree perfectly, but should be close enough.
 
