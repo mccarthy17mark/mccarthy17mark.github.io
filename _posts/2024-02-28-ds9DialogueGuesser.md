@@ -16,7 +16,17 @@ I should also point out there will be some spoilers ahead, in the unlikely case 
 
 If you're inclined, you can see my whole implementation in a [Jupyter notebook]().
 
-### The data
+[The Data](#data)
+
+[The Model](#model)
+
+[The Training](#training)
+
+[The Results](#results)
+
+[The Further Reading](#resources)
+
+### The Data <a name="data"></a>
 
 To match dialogue with speakers, we first need access to the dialogue. Initially I had planned to use the closed-captioning, but you can actually find scripts to the entire show on a fan website called [Star Trek Minutiae](https://www.st-minutiae.com/resources/scripts/#deepspacenine). Important to note is that the scripts are copywrited and I have not obtained any permissions from the creators or owners, but we should be okay using this in a 'fair-use' context, which I believe applies to this project.
 
@@ -47,7 +57,7 @@ Lastly, I restricted speakers in the problem to only those who spoke at least 10
 
 Note that Jadzia Dax is `DAX` and (spoilers!) Ezri Dax is `Ezri`. 
 
-### The model
+### The Model <a name="model"></a>
 
 The model is a **recursive neural network** (RNN), with embedding, whose output is interpreted by a feed forward network. Since we're identifying the speaker, this is a **classification** problem. This diagram from [Speech and Language Processing by Jurafsky and Martin](https://web.stanford.edu/~jurafsky/slp3/) illustrates this set-up nicely, albeit without the embeddings.
 
@@ -59,7 +69,7 @@ Anyone who's taken a linear algebra class before will know that matrix multiplic
 
 The last step to the model is actually adding a first step to help us deal with that large vocabulary. Instead of trying to learn patterns from ~800 words, we'd rather turn those words into something that understands a bit of the meaning and function of those words, and learn patterns from those meanings. This is called **embedding**, and it essentially just adds one extra layer to our neural network. This embedding layer is trained at the same time as the rest of the network, but it helps simplify the problem for the later layers.
 
-### Training
+### The Training <a name="training"></a>
 
 In a model like this, we refer to the weights in the neural network as our **parameters**. We train them by feeding our model input vectors and seeing its prediction, then altering the parameters based on the differences between the output and the correct value. To make sure we are training a general model and not memorizing the training data through overfitting, we split the data into two groups, a training set and a test set, so we can evaluate the model on data we've never seen before. 
 
@@ -75,7 +85,7 @@ The model learns based upon minimizing its *wrong*ness, or **loss**. There are d
 
 We can see that the loss is decreasing with increasing training, which implies that the model is actually learning! Eventually this training should yeild diminishing returns, and although it looks like we could continue training for a longer time, I'm not actually too interested in the final result, just proving the concept and learning how to make neural networks.
 
-### Results
+### The Results <a name="results"></a>
 
 We can check the **accuracy** of the model by looking at how often it made the correct guess against the testing data. It was correct 16% of the time! While this might not sound like very much, it is significantly better than the 1/14 ~= 7% accuracy we would expect if it was performing random guesses and had learned nothing. (Technically we can get professional and say we can reject the null hypothesis of random guesses, which is a simple binomial distribution, by hundreds of sigma, to the point that calculating the p-value is quite meaningless). There are other metrics besides accuracy, but I feel like accuracy is best for this problem.
 
@@ -91,7 +101,7 @@ I additionally wanted to check how well this model could perform relative to a h
 
 All together I'd call this project a success. With a MacbookPro, internet searches, one and a half weeks, and some data, you really can build an AI / neural network from scratch with no experience on the subject! RNN's are just one of a great many frameworks for a neural network, but it was a great challenge to get started in this burgeoning field. Not only did I learn a lot about neural networks, but a lot about one of my favourite shows at the same time!
 
-### Resources
+### Further Reading <a name="resources"></a>
 
 I used pytorch to run the neural network, so of course their documentation proved indispensable. I particularly found a lot of use out of this similar tutorial about [identifing origins of last names](https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html)
 
