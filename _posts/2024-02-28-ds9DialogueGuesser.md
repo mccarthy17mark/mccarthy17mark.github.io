@@ -51,7 +51,7 @@ Note that Jadzia Dax is `DAX` and (spoilers!) Ezri Dax is `Ezri`.
 
 The model is a **recursive neural network** (RNN), with embedding, whose output is interpreted by a feed forward network. Since we're identifying the speaker, this is a **classification** problem. This diagram from [Speech and Language Processing by Jurafsky and Martin](https://web.stanford.edu/~jurafsky/slp3/) illustrates this set-up nicely, albeit without the embeddings.
 
-![Recursive neural network schematic](assets/posts/ds9DialogueGuesser/model.png)
+![Recursive neural network schematic](/assets/posts/ds9DialogueGuesser/model.png)
 
 A neural network can almost accurately be imagined to be a series of matrices and simple non-linear functions (like tanh, sigmoid, or ReLU). You give it an input vector, multiply this by a matrix, apply the non-linear function, and repeat, until you have an output value or vector representing what you wanted it to predict. Each of these repetitions transforms our input to some hidden intermediate values, then sometimes from hidden values to more hidden values repeatedly, and eventually from the hidden values to the output. Each of these stages of hidden values are called layers. As it trains, the values of these matrices are altered to try to get better predictions. There are a few more steps than that, but this is the basic idea. In our problem, the input vector is a list of indices for words in the line of dialogue, and the output is a vector with one element for each character that expresses the confidence that this character is the one who spoke. Our predicted speaker is the maximum of that output vector.
 
@@ -71,7 +71,7 @@ One of the complications of the dataset is that characters speak with extraordin
 
 The model learns based upon minimizing its *wrong*ness, or **loss**. There are different ways of quantifing loss, but for this model I settled on using **cross-entropy**. This loss metric is actually one of the hyperparameters I tried out; learning using cross-entropy loss performed better than using the **negative log likelihood**. We can look at the loss over time, and hopefully see that as the model learns, the loss steadily decreases. Over the 200 000 final training dialogue inputs, here is the loss:
 
-![Cross-entropy loss over the amount of training experienced](assets/posts/ds9DialogueGuesser/loss_plot.png)
+![Cross-entropy loss over the amount of training experienced](/assets/posts/ds9DialogueGuesser/loss_plot.png)
 
 We can see that the loss is decreasing with increasing training, which implies that the model is actually learning! Eventually this training should yeild diminishing returns, and although it looks like we could continue training for a longer time, I'm not actually too interested in the final result, just proving the concept and learning how to make neural networks.
 
@@ -81,13 +81,13 @@ We can check the **accuracy** of the model by looking at how often it made the c
 
 We can also look at which characters it can identify correctly and which characters it gets confused using what's called a **confusion matrix**. Here we compare guesses with the correct answers in a square matrix. We hope we get a nice diagonal line from top-left to bottom-right, as this would mean we've guessed every character correctly. Here's what it looks like for our trained model:
 
-![Confusion matrix for trained neural network](assets/posts/ds9DialogueGuesser/trained_confusion.png)
+![Confusion matrix for trained neural network](/assets/posts/ds9DialogueGuesser/trained_confusion.png)
 
 It's not the prettiest... the vertical bands indicate the network has a tendency to guess the same characters over and over, disregarding the input. But we can see some characters like `Garak` and `Rom` are actually identified fairly well. Since they have a quite unique voice (in terms of vocabulary and sentence structure), it makes sense they are where the model performs the best. We can also see some peculiarities, for example the model will identify `Nog` as `Jake` but will rarely identify `Jake` as `Nog`. And (*spoilers*) a show's fan will be delighted to see the confusion between Jadzia `Dax` and `Ezri` Dax, beautifully mirroring these characters' confusion between themselves!
 
 I additionally wanted to check how well this model could perform relative to a human who is a fan of the show (myself). After testing myself with 150 dialogues, I got 32 correct answers giving me an accuracy of about 21%. It is actually really hard! How do you identify someone who says `What does he want with us?`, would you correctly identify that line as spoken by `Dax`? The model might not be able to outperform a human, but the fact that it even comes close is astonishing! Here's my personal confusion matrix for reference:
 
-![Confusion matrix for trained human fan](assets/posts/ds9DialogueGuesser/human_confusion.png)
+![Confusion matrix for trained human fan](/assets/posts/ds9DialogueGuesser/human_confusion.png)
 
 All together I'd call this project a success. With a MacbookPro, internet searches, one and a half weeks, and some data, you really can build an AI / neural network from scratch with no experience on the subject! RNN's are just one of a great many frameworks for a neural network, but it was a great challenge to get started in this burgeoning field. Not only did I learn a lot about neural networks, but a lot about one of my favourite shows at the same time!
 
