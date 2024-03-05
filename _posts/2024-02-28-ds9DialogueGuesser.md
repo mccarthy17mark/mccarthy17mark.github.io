@@ -6,25 +6,53 @@ categories:
 usemathjax: true
 ---
 
-## Overview
+[Overview](#overview)
+
+[Data](#data)
+
+[Model](#model)
+
+[Training](#training)
+
+[Results](#results)
+
+[Further Reading](#resources)
+
+
+## Overview <a name="overview"></a>
 
 AI and neural networks are all the rage these days, but how hard are they to make and use? Could someone with programming and data experience, and a Macbook Pro whip one together for a non-trivial problem, despite having no experience with neural networks?
 
-I spent about a week and a half and created something to take lines of dialogue from a tv show (Star Trek: Deep Space Nine) and identify the speaker. And it works... at least compared to random guesses. Turns out this is a very difficult problem and even I, as a fan of the show, am only barely better than the AI.
+I spent about a week and a half and created something to take lines of dialogue from a tv show (Star Trek: Deep Space Nine) and identify the speaker. And it works! Though it turns out this is a very difficult problem and even I, as a fan of the show, am only barely better than the AI, and neither of us can beat 25% accuracy.
 
 I should also point out there will be some spoilers ahead, in the unlikely case you, dear reader, are invested in watching this almost 25-year-old show for the first time.
 
-If you're inclined, you can see my whole implementation in a [Jupyter notebook]().
+If you're inclined, you can see my whole implementation in a [Jupyter notebook](https://github.com/mccarthy17mark/ds9-neural-network/blob/main/nn_simple.ipynb).
 
-[The Data](#data)
+### The Problem<a name="problem"</a>
 
-[The Model](#model)
+The goal of this project isn't actually solve the problem I've set for myself; let me explain
 
-[The Training](#training)
+The problem I've set is to take a line of dialogue and identify which character spoke the line. The initial dream was to train a GAN (generative adversarial network) to have little conversations, but we need to find a project that is small enough to tackle for a very first neural network, and that's going to be simply identifying speakers. If we can get this to work, then we have permission to dream bigger in some future blog post!
 
-[The Results](#results)
+The true goal of this project is to build a prototype neural network, do it quickly, and learn as much as I can. Having a good classifier neural net is a nice thing to make, but the real goal is to be able to do this again even better on the next project!
 
-[The Further Reading](#resources)
+To get a feel for the problem, here are some examples of lines of dialogue taken at random from the show's 173 episodes:
+
+| Character | Line |
+|:---|:---|
+| DUKAT | Then call to them. |
+| O'BRIEN | It's not so bad. |
+| EZRI | What are you getting at, Benjamin? |
+| QUARK | You've got a deal. |
+| QUARK | I can take it.  Tell me. |
+| GARAK | We've cleared their defense perimeter. |
+| JAKE | What do you think I should say? |
+| SISKO | Take us in a little closer. |
+| ODO | Why shouldn't I? |
+| NOG | I liked The Searchers better. |
+
+Clearly it's going to be a challenge when the dialogue is very generic, but it's not an impossible task. Hopefully we can identify Captian `Sisko`'s imperative declarations, `Quark`'s commercial obsessions, or `Ezri` and `Dax` being the few characters to ever say "Benjamin".
 
 ### The Data <a name="data"></a>
 
