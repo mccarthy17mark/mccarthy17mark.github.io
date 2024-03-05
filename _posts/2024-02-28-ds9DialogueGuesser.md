@@ -8,6 +8,8 @@ usemathjax: true
 
 [Overview](#overview)
 
+[Problem Definition](#problem)
+
 [Data](#data)
 
 [Model](#model)
@@ -29,7 +31,7 @@ I should also point out there will be some spoilers ahead, in the unlikely case 
 
 If you're inclined, you can see my whole implementation in a [Jupyter notebook](https://github.com/mccarthy17mark/ds9-neural-network/blob/main/nn_simple.ipynb).
 
-### The Problem<a name="problem"</a>
+### Problem Definition<a name="problem"></a>
 
 The goal of this project isn't actually solve the problem I've set for myself; let me explain
 
