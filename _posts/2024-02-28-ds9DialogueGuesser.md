@@ -20,6 +20,10 @@ usemathjax: true
 
 [Further Reading](#resources)
 
+<br>
+
+<br>
+
 ---
 
 ## Overview <a name="overview"></a>
@@ -31,6 +35,10 @@ I spent about a week and a half and created something to take lines of dialogue 
 I should also point out there will be some spoilers ahead, in the unlikely case you, dear reader, are invested in watching this almost 25-year-old show for the first time.
 
 If you're inclined, you can see my whole implementation in a [Jupyter notebook](https://github.com/mccarthy17mark/ds9-neural-network/blob/main/nn_simple.ipynb).
+
+<br>
+
+<br>
 
 ---
 
@@ -58,6 +66,10 @@ To get a feel for the problem, here are some examples of lines of dialogue taken
 | NOG | I liked The Searchers better. |
 
 Clearly it's going to be a challenge when the dialogue is very generic, but it's not an impossible task. Hopefully we can identify Captian `Sisko`'s imperative declarations, `Quark`'s commercial obsessions, or `Ezri` and `Dax` being the few characters to ever say "Benjamin".
+
+<br>
+
+<br>
 
 ---
 
@@ -92,6 +104,10 @@ Lastly, I restricted speakers in the problem to only those who spoke at least 10
 
 Note that Jadzia Dax is `DAX` and (spoilers!) Ezri Dax is `Ezri`. 
 
+<br>
+
+<br>
+
 ---
 
 ### The Model <a name="model"></a>
@@ -105,6 +121,10 @@ A neural network can almost accurately be imagined to be a series of matrices an
 Anyone who's taken a linear algebra class before will know that matrix multiplication is extremely picky about the number of dimensions in the vectors and matrices. Our input vector, being a line of dialogue, can have a wide variety of lengths. There are a variety of ways to tackle this problem, like a bag-of-words approach, an n-gram model, or a transformer approach, but for this project I used a **recursive neural network**. How this works is that the network is only fed one word at a time. I used just one hidden layer, which is then fed, along with the next word, back into the network. This happens repeatedly until there are no more words, in which case the final hidden layer gets transformed by one more matrix & activation function combo (and a softmax, but don't worry about that), into our output. By doing this, we can process arbitrarily long input strings, although typically these sorts of networks have trouble remembering important information when given inputs that are too long. There are methods to deal with this, such as Long Short Term Memory (LSTM), but I wanted to keep this network as simple as I could while I'm still learning.
 
 The last step to the model is actually adding a first step to help us deal with that large vocabulary. Instead of trying to learn patterns from ~800 words, we'd rather turn those words into something that understands a bit of the meaning and function of those words, and learn patterns from those meanings. This is called **embedding**, and it essentially just adds one extra layer to our neural network. This embedding layer is trained at the same time as the rest of the network, but it helps simplify the problem for the later layers.
+
+<br>
+
+<br>
 
 ---
 
@@ -124,6 +144,10 @@ The model learns based upon minimizing its *wrong*ness, or **loss**. There are d
 
 We can see that the loss is decreasing with increasing training, which implies that the model is actually learning! Eventually this training should yeild diminishing returns, and although it looks like we could continue training for a longer time, I'm not actually too interested in the final result, just proving the concept and learning how to make neural networks.
 
+<br>
+
+<br>
+
 ---
 
 ### The Results <a name="results"></a>
@@ -134,13 +158,21 @@ We can also look at which characters it can identify correctly and which charact
 
 ![Confusion matrix for trained neural network](/assets/posts/ds9DialogueGuesser/trained_confusion.png)
 
-It's not the prettiest... the vertical bands indicate the network has a tendency to guess the same characters over and over, disregarding the input. But we can see some characters like `Garak` and `Rom` are actually identified fairly well. Since they have a quite unique voice (in terms of vocabulary and sentence structure), it makes sense they are where the model performs the best. We can also see some peculiarities, for example the model will identify `Nog` as `Jake` but will rarely identify `Jake` as `Nog`. And (*spoilers*) a show's fan will be delighted to see the confusion between Jadzia `Dax` and `Ezri` Dax, beautifully mirroring these characters' confusion between themselves!
+It's not the prettiest... the vertical bands indicate the network has a tendency to guess the same characters over and over, disregarding the input. But we can see some characters like `Garak` and `Rom` are actually identified fairly well. Since they have a quite unique voice (in terms of vocabulary and sentence structure), it makes sense they are where the model performs the best. We can also see some peculiarities, for example the model will identify `Nog` as `Jake` but will rarely identify `Jake` as `Nog`. 
+
+![Confusion matrix highlighting Ezri-Dax misidentification](/assets/posts/ds9DialogueGuesser/trained_confusion_highlight.png)
+
+And (*spoilers*) a show's fan will be delighted to see the confusion between Jadzia `Dax` and `Ezri` Dax, beautifully mirroring these characters' confusion between themselves! The yellow boxes in the plot above are situations when the speaker is either `Ezri` or `Dax`, and the arrows highlight where they are mis-identified as each other.
 
 I additionally wanted to check how well this model could perform relative to a human who is a fan of the show (myself). After testing myself with 150 dialogues, I got 32 correct answers giving me an accuracy of about 21%. It is actually really hard! How do you identify someone who says `What does he want with us?`, would you correctly identify that line as spoken by `Dax`? The model might not be able to outperform a human, but the fact that it even comes close is astonishing! Here's my personal confusion matrix for reference:
 
 ![Confusion matrix for trained human fan](/assets/posts/ds9DialogueGuesser/human_confusion.png)
 
 All together I'd call this project a success. With a MacbookPro, internet searches, one and a half weeks, and some data, you really can build an AI / neural network from scratch with no experience on the subject! RNN's are just one of a great many frameworks for a neural network, but it was a great challenge to get started in this burgeoning field. Not only did I learn a lot about neural networks, but a lot about one of my favourite shows at the same time!
+
+<br>
+
+<br>
 
 ---
 
