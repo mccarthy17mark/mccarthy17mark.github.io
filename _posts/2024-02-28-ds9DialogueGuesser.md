@@ -168,6 +168,14 @@ I additionally wanted to check how well this model could perform relative to a h
 
 ![Confusion matrix for trained human fan](/assets/posts/ds9DialogueGuesser/human_confusion.png)
 
+We can extend the use of this model to make predictions about which character is most likely to have said some line that never actually appears in the show. Up until this point I've shown you the character that the model believes most likely spoke, but it actually returns a probability of the line being spoken for each character, based on the model's confidence. For example, here are a series of lines I've invented to be very typical for a character and that sound like they are from the show. We can see when the model is confident in the hypothetical speaker, and when it has more doubts.
+
+![Predicted speakers based on invented stereotypical lines](/assets/posts/ds9DialogueGuesser/char_line_confidences.png)
+
+Although less useful, it can be a lot of fun to do this with lines from other franchises and see which DS9 character best fits the role:
+
+![Predicted speakers based on lines from other franchises](/assets/posts/ds9DialogueGuesser/scifi_line_confidences.png)
+
 All together I'd call this project a success. With a MacbookPro, internet searches, one and a half weeks, and some data, you really can build an AI / neural network from scratch with no experience on the subject! RNN's are just one of a great many frameworks for a neural network, but it was a great challenge to get started in this burgeoning field. Not only did I learn a lot about neural networks, but a lot about one of my favourite shows at the same time!
 
 <br>
