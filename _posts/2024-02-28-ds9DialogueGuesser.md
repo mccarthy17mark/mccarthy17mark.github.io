@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Using a neural net to match dialogue with characters in Star Trek: Deep Space Nine"
-date:   2024-03-03 12:00:00 -0500
+date:   2024-03-15 12:00:00 -0500
 categories: 
 usemathjax: true
 ---
