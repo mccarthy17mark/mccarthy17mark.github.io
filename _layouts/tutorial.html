@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% for tutorial in site.tutorials %}
+{% if tutorial.pageId == page.parentId %}
+<h3> Return to <a href={{tutorial.url}}>{{ tutorial.title }}</a>
+</h3>
+{% endif %}
+{% endfor %}
+
+<h1> {{page.title}} </h1>
+
+{% assign hasChildren = false %}
+{% for tutorial in site.tutorials %}
+{% if page.pageId == tutorial.parentId %}
+{% assign hasChildren = true %}
+{% endif %}
+{% endfor %}
+
+{% if hasChildren == true %}
+<a href=#childTut>Further tutorials are listed below </a>
+<br>
+<br>
+{% endif %}
+
+<div class="post-content e-content" itemprop="articleBody">
+    {{ page.content }}
+</div>
+
+<hr>
+
+{% if hasChildren == true %}
+
+<h3> <a name="childTut"></a> Further tutorials: </h3>
+
+{% for tutorial in site.tutorials %}
+{% if page.pageId == tutorial.parentId %}
+<h3><a href={{tutorial.url}}>{{ tutorial.title }}</a></h3>
+{% endif %}
+{% endfor %}
+
+{% endif %}
+

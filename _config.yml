@@ -45,6 +45,9 @@ minima:
   social_links:
     - { platform: linkedin,  user_url: "https://www.linkedin.com/in/mark-mccarthy-113b41132/" }
 
+kramdown:
+  parse_block_html: true
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -64,3 +67,15 @@ minima:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+
+collections:
+  tutorials:
+    output: true
+    
+    #order:
+    #  - hello-world.md
+    #  - introduction.md
+    #  - basic-concepts.md
+    #  - advanced-concepts.md
