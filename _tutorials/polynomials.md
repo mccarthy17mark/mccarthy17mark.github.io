@@ -29,13 +29,13 @@ In words, we are adding up different powers of x, weighted by various constants 
 The largest $i$ for which the corresponding $a_{i}$ is not zero is called the **degree**.
 
 <details>
-<summary>Examples of polynomials</summary>
-<blockquote>
+<summary>
+Examples of polynomials
+</summary>
 Lines are polynomials of degree 1 typically written as:
 $$ y = m x + b $$
 for example,
 $$ y = 7 x - 6 $$
-
 Parabolas are polynomials of degree 2:
 $$ f(x) = 3x^2 + 2x + 1$$
 
@@ -45,7 +45,6 @@ $$ f(x) = -13x^3 + \pi x $$
 
 Although usually a bad example, constants are also technically polynomials of degree zero:
 $$ f(x) = 12 $$
-</blockquote>
 </details>
 
 Quite commonly the most useful thing to do with a polynomial is to factor it. This means putting it in the form:
