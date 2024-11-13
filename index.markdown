@@ -5,6 +5,8 @@
 layout: home
 ---
 
-Hello
+Welcome to my site where I post interesting things for you to read, and interesting things for me to remember.
+
+Use the following links to find your way around!
 
 
