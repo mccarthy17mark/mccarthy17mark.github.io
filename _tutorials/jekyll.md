@@ -11,11 +11,11 @@ parentId: tech
 
 Jekyll is the framework by which this site is built. It is relatively simple, allows for some nice shortcuts to be made, and is the default framework for github-pages. Here is the [documentation](https://jekyllrb.com/) and a [quickstart guide](https://jekyllrb.com/docs/).
 
-A deep dive into how webpages work is for another tutorial. Suffice to say that when you access a webpage from some server somewhere, it will send back an html file. This file often prompts your browser to download some css files, maybe some images, perhaps some js files...
+A deep dive into how webpages work is for another tutorial. Suffice to say that when you access a webpage from some server somewhere, it will send back an `html` file. This file often prompts your browser to download some `css` files, maybe some images, perhaps some `js` files...
 
-With something simple like a static blog, all you really need is some html to describe the content and structure of the page, and some css which styles the site to make it look a bit nicer. The css will often be the same on every page. The html structure might vary between pages, but there will definitely be some repeated boilerplate and common elements between pages. An example is a top menu or navbar, which will appear on every page with identical code. 
+With something simple like a static blog, all you really need is some `html` to describe the content and structure of the page, and some `css` which styles the site to make it look a bit nicer. The `css` will often be the same on every page. The `html` structure might vary between pages, but there will definitely be some repeated boilerplate and common elements between pages. An example is a top menu or navbar, which will appear on every page with identical code. 
 
-The Jekyll framework is designed to so that the common elements are kept separately from the unique content of each page. When the site is ready to be read, Jekyll will "build" the site by combining all the common elements with all the unique content and creating the html and css files needed. This way you only need to focus on generating the unique content (usually blog posts) and rarely do you need to look at or alter the more technical common elements.
+The Jekyll framework is designed to so that the common elements are kept separately from the unique content of each page. When the site is ready to be read, Jekyll will "build" the site by combining all the common elements with all the unique content and creating the `html` and `css` files needed. This way you only need to focus on generating the unique content (usually blog posts) and rarely do you need to look at or alter the more technical common elements.
 
 ### Themes
 
@@ -27,13 +27,15 @@ Creating your own file with the same name in the site's directory will cause Jek
 
 ### Markdown
 
-[Markdown](https://daringfireball.net/projects/markdown/) is a simple markup language used for formatting a document, and it is far more widespread than Jekyll. It is easy to read before being parsed and is commonly used to turn something human-readable into an html document. The specifics of markdown are not worth getting into, but it helps to know that Jekyll will convert posts and pages from markdown into html for you, making your site easier to generate and maintain.
+[Markdown](https://daringfireball.net/projects/markdown/) is a simple markup language used for formatting a document, and it is far more widespread than Jekyll. It is easy to read before being parsed and is commonly used to turn something human-readable into an `html` document. The specifics of markdown are not worth getting into, but it helps to know that Jekyll will convert posts and pages from markdown into `html` for you, making your site easier to generate and maintain.
+
+It is worth pointing out that Jekyll isn't actually doing the conversion, but is calling another tool to do it. By default, the tool used is kramdown, although by editing the `_config.yml` you can change it to something else. I've been using kramdown for this site and it seems to be a suitable solution.
 
 ### Liquid
 
-[Liquid](https://shopify.github.io/liquid/) is a system used by Jekyll for storing variables and programmatically injecting them into your site's html or markdown (and later html) files. For example, a list with links to all of your blog posts would require editing after each new post, and such manual editing is error-prone (never trust humans to do a machine's job). Liquid is ideal for this, as it can generate such a list automatically after only being coded up once.
+[Liquid](https://shopify.github.io/liquid/) is a system developed by Shopify and used by Jekyll for storing variables and programmatically injecting them into your site's `html` or markdown (and later `html`) files. For example, a list with links to all of your blog posts would require editing after each new post, and such manual editing is error-prone (never trust humans to do a machine's job). Liquid is ideal for this, as it can generate such a list automatically after only being coded up once.
 
-On this site, I use something the following to generate a link to a specific page, and I do not need to worry about changes to urls or directory structure to keep it working:
+On this site, I use the following snippet to generate a link to a specific page, and I do not need to worry about changes to urls or directory structure to keep it working:
 
 ```
 {%- raw -%}
@@ -61,7 +63,7 @@ Assuming you have set everything up right (or just followed the quickstart guide
 
 `bundle exec jekyll serve`
 
-Navigating to `http://localhost:4000` with a browser will allow you to view your site. Much of the time you'll be able to make an edit in the code, save the file, and Jekyll will build the site again allowing you to refresh the browser to see the changes. There exists a `--livereload` option which might let you skip the refreshes, but it seems superfluous to me.
+Navigating to `http://localhost:4000` with a browser will allow you to view your site. Much of the time you'll be able to make an edit in the code, save the file, and Jekyll will build the site again allowing you to refresh the browser to see the changes. There exists a `--livereload` option which might let you skip the refreshes, but it seems superfluous to me. My front-end developer friends disagree.
 
 When built, unless we've tinkered with the `_config.yml` file, the output overwrites the `_site/` directory. When we upload to github-pages, github takes control over the building of the site for us, but it seems to behave mostly in the same way as it does locally.
 
