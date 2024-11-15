@@ -23,10 +23,6 @@ parentId: tutorialHome
 
 ## The following technologies and tools have tutorials:
 
-[Multiprocessing]()
-
-[Internet layers, MAC addresses, and IP addresses]()
-
 {% for tutorial in site.tutorials %}
 {% if page.pageId == tutorial.parentId %}
 ### [{{ tutorial.title }}]({{tutorial.url}})

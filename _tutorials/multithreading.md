@@ -80,7 +80,13 @@ There are drawbacks to mutexes unfortunately. They can be cumbersome to maintain
 
 ### Atomicity
 
-The original idea of an atom comes from the concept of making something so small that it eventually becomes indivisible.
+The original idea of an atom comes from the concept of making something so small that it eventually becomes indivisible. This idea applied to concurrent programming is that the simplest actions are too small to be useful and we want to bundle them together to make a larger set of actions that can be performed as if it was one indivisible action. When we acheive this, the set of actions is called *atomic*.
+
+For example, incrementing a counter is an extremely common action, takes only a single line of code with a single operator `x++;`, but it is not actually atomic. To increment a counter, we first *read* the value, *modify* that reading, then *write* the new value back into memory. These are three separate atomic actions and issues can arise when there are multiple threads incrementing the same counter.
+
+Imagine two threads, `A` and `B` and a counter with a value `2`. If both threads increment this counter, we expect a value of `4`. Now supposethe threads do the following: `A` reads `2` from the counter's memory, `A` increments `2` to `3`, `B` reads `2` from the counter's memory, `A` writes `3` into the counter's memory, `B` increments `2` to `3`, `B` writes `3` into the counter's memory. We expected to get `4` but we got `3` instead. Depending on what this counter represents and how often this happens, this can cause major troubles.
+
+In `C++`, there is an [`<atomic>` library](https://cplusplus.com/reference/atomic/) which will allow threads to atomically modify variables through things like addition, subtraction, and exchanging with another variable. There's also an atomic flag which can be set by one thread and then ignored by the other threads, although there are more creative uses for this.
 
 ### Semaphores
 
