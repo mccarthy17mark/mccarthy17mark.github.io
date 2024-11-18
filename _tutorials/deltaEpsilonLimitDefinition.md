@@ -109,7 +109,13 @@ $$ \lim_{x->2} 3x+4 \neq 1 $$
 
 Once we start dealing with more complicated functions, this proof can become much more complicated. I could go through more examples, but some earnest googling will likely do the trick as well.
 
-The real deal is that we need to become aware of a few more techniques to deal with most functions. One common problem is that a large $\epsilon$ can cause us to pick a bad $\delta$ if we're not careful. To solve this, our $\delta$ has to be restricted to be the minimum of two values, one dependent on $\epsilon$ and one that's just some arbitrary small number. Ultimately limits really only matter locally, not globally... we only care about the behaviour of $f(x)$ arbitrarily close to $c$, not anywhere else.
+The real deal is that we need to become aware of a few more techniques to deal with most functions. One common problem is that a large $\epsilon$ can cause us to pick a bad $\delta$ if we're not careful. To solve this, our $\delta$ has to be restricted to be the minimum of two values, one dependent on $\epsilon$ and one that's just some arbitrary small number. Ultimately limits really only matter *locally*, not *globally*... we only care about the behaviour of $f(x)$ arbitrarily close to $c$, not anywhere else.
+
+A common technique which we almost always have to employ is to break up the absolute value in our inequality like so:
+
+$$ 0 < |x| < a $$
+
+$$ -a < x < a , \hspace{1cm} a > 0$$
 
 ### Limits Involving Infinity
 
@@ -118,9 +124,11 @@ The $\delta - \epsilon$ definition needs some slight tweaking when infinity is i
 1. The limit evaluates to $L = \pm \infty$
 1. The limit is evaluated at $x = \pm \infty$
 
-For both of these situations our solution is to replace the offending idea with saying that it is larger than any arbitrarily large finite integer. This is what this looks like for the positive infinities:
+For both of these situations our solution is to replace the offending idea with saying that it is larger than any arbitrarily large finite integer. If you give me some outrageously large value that you want my $f(x)$ to surpass (or if you want my $f(x)$ to be within some outrageously small range of the limit), then I can choose some outrageously large number that restricts $x$ (or an outrageously small range about $c$ to restrict $x$) so that your condition is satisfied for all the remaining values of $x$.
 
-Suppose, for any $N > 0$ there exists a $M > 0$ such that for all the values of $x$ statisfying the following
+This is what this looks like in more technical language for the positive infinities:
+
+Suppose, for any $N$ there exists a $M$ such that for all the values of $x$ statisfying the following
 
 $$ x > M $$ 
 
@@ -133,5 +141,3 @@ If that supposition is true we define the following:
 $$ \lim_{x\to \infty} f(x) = \infty $$
 
 Using this definition at negative infinity simply requires exchanging some $>$ symbols for $<$ symbols.
-
-The idea in less technical terms is the following. If you give me some outrageously large value that you want my $f(x)$ to surpass (or if you want my $f(x)$ to be within some outrageously small range of the limit), then I can choose some outrageously large number that restricts $x$ (or an outrageously small range about $c$ to restrict $x$) so that your condition is satisfied for all the remaining values of $x$.

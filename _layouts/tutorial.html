@@ -2,6 +2,16 @@
 layout: default
 ---
 
+<style>
+  .exampleBox {
+      background: #f5f5f5;
+      color: black;
+      border: 3px solid #535353;
+      margin: 0px auto;
+      padding: 10px;
+  }
+</style>
+
 {% for tutorial in site.tutorials %}
 {% if tutorial.pageId == page.parentId %}
 <h3> Return to <a href={{tutorial.url}}>{{ tutorial.title }}</a>
