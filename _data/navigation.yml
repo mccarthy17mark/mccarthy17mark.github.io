@@ -1,0 +1,10 @@
+head_pages:
+
+- title: Tutorials
+  url: /tutorials/tutorials.html
+
+- title: Posts
+  url: /posts.html
+
+- title: About
+  url: /about/
