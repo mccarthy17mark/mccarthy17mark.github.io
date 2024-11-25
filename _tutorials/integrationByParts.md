@@ -43,9 +43,9 @@ $$ \int xe^{x} dx $$
 <hr>
 This integrand is unable to be solved by substitution, so we look to integration by parts. We see that there is a polynomial portion $x$ that will become simpler with differentiation, and an exponential portion $e^{x}$ that does not become more complicated with integration. This lets us easily choose our $u$ and $dv$:
 
-$$ u = x \hspace{1cm} dv = e^{x}dx $$
+$$ u = x \qquad dv = e^{x}dx $$
 
-$$ du = dx \hspace{1cm} v = e^{x} $$
+$$ du = dx \qquad v = e^{x} $$
 
 Note that even though we did an indefinite integral to acquire $v$ from $dv$, it's not worth bothering with an integration constant since our final formula still contains an indefinite integral.
 
@@ -66,15 +66,15 @@ $$ \int x^{2}\cos(x) dx $$
 <hr>
 Our choice of $u$ and $dv$ should be pretty straight-forward, except for one reservation: the polynomial portion becomes simpler with differentiation but does not disappear. Often integration by parts forces us to repeatedly use it to get a polynomial to give up and differentiate itself away.
 
-$$ u = x^{2} \hspace{1cm} dv = \cos(x)dx $$
+$$ u = x^{2} \qquad dv = \cos(x)dx $$
 
-$$ du = 2xdx \hspace{1cm} v = \sin(x) $$
+$$ du = 2xdx \qquad v = \sin(x) $$
 
 $$ \int x^{2}\cos(x) dx = x^{2}\sin(x) - \int 2x\sin(x)dx $$
 
-$$ u = x \hspace{1cm} dv = \sin(x)dx $$
+$$ u = x \qquad dv = \sin(x)dx $$
 
-$$ du = dx \hspace{1cm} v = -\cos(x) $$
+$$ du = dx \qquad v = -\cos(x) $$
 
 $$ \int x^{2}\cos(x) dx = x^{2}\sin(x) - 2\left[-x\cos(x) - \int -\cos(x)dx\right] $$
 
@@ -86,22 +86,22 @@ Sometimes the choice of $u$ and $v$ are less obvious. It often requires a bit of
 
 <details class="exampleBox">
 <summary>
-$$ \int ln(x) dx $$
+$$ \int \ln(x) dx $$
 </summary>
 <hr>
 This feels like it should be something elementary, like it was forgotten from our standard formulae, but it's actually quite a strange integral. Noticing that integration by parts is the best method is especially difficult here unless you've seen it done before.
 
-$$ u = ln(x) \hspace{1cm} dv = dx $$
+$$ u = \ln(x) \qquad dv = dx $$
 
-$$ du = frac{1}{x} dx \hspace{1cm} v = x $$
+$$ du = \frac{1}{x} dx \qquad v = x $$
 
-$$ \int ln(x) dx = xln(x) - \int x \frac{1}{x} dx $$
+$$ \int \ln(x) dx = x\ln(x) - \int x \frac{1}{x} dx $$
 
-$$ = xln(x) - \int dx $$
+$$ = x\ln(x) - \int dx $$
 
-$$ = xln(x) - x + C $$
+$$ = x\ln(x) - x + C $$
 
-$$ = x(ln(x) - 1) + C $$
+$$ = x(\ln(x) - 1) + C $$
 
 </details>
 
@@ -114,23 +114,27 @@ $$ \int \sin(x)e^{x} dx $$
 <hr>
 This integral actually allows us to pick either the trigonometric factor or the exponential factor for both $u$ and $dv$. The result is ultimately the same.
 
-$$ u = \sin(x) \hspace{1cm} dv = e^{x} dx $$
+$$ u = \sin(x) \qquad dv = e^{x} dx $$
 
-$$ du = \cos(x) dx \hspace{1cm} v = e^{x} $$
+$$ du = \cos(x) dx \qquad v = e^{x} $$
 
 $$ \int \sin(x)e^{x} dx = \sin(x)e^{x} - \int e^{x}\cos(x)dx $$
 
-$$ u = \cos(x) \hspace{1cm} dv = e^{x} dx $$
+$$ u = \cos(x) \qquad dv = e^{x} dx $$
 
-$$ du = -\sin(x) dx \hspace{1cm} v = e^{x} $$
+$$ du = -\sin(x) dx \qquad v = e^{x} $$
 
 $$ \int \sin(x)e^{x} dx = \sin(x)e^{x} - \left[\cos(x)e^{x} - \int e^{x}(-\sin(x))dx\right] $$
 
 $$ \int \sin(x)e^{x} dx = e^{x}(\sin(x) - \cos(x)) - \int \sin(x)e^{x}dx $$
 
-$$ 2\int \sin(x)e^{x} dx = e^{x}(\sin(x) - \cos(x)) $$
+Notice we have the same integral on both the left and right sides of the equation. We can combine them, but it's worth mentioning the integration constant $C$. When there is an indefinite integral on the right hand side of the equation, we can imagine that adding any integration constants would be pointless since the indefinite integral will create a new constant that could absorb the first one. However, when we move all the integrals to one side of the equation, it's worthwhile to include the constant since there is no longer any other term to absorb it.
 
-$$ \int \sin(x)e^{x} dx = \frac{e^{x}(\sin(x) - \cos(x))}{2} $$
+$$ 2\int \sin(x)e^{x} dx = e^{x}(\sin(x) - \cos(x)) + C $$
+
+Note that $C$ is arbitrary, so we need not concern ourselves with actions like dividing by two. We could pretend we're making the substitution $\frac{C}{2} \to C$ if it makes you feel better about it, but there are honestly more important things in the world to worry about.
+
+$$ \int \sin(x)e^{x} dx = \frac{e^{x}(\sin(x) - \cos(x))}{2} + C$$
 
 </details>
 

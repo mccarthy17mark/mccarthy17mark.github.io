@@ -73,7 +73,7 @@ $$ 0 < |m| |x - c| < \epsilon $$
 
 $$ 0 < |mx+b - (mc+b)| < \epsilon $$
 
-$$ 0 < |f(x) - L| < \epsilon \Rightarrow \lim_{x->c} f(x) = mc+b \hspace{1cm} \blacksquare $$
+$$ 0 < |f(x) - L| < \epsilon \Rightarrow \lim_{x->c} f(x) = mc+b \qquad \blacksquare $$
 
 ### Linear Counter-Example
 
@@ -121,7 +121,7 @@ A common technique which we almost always have to employ is to break up the abso
 
 $$ 0 < |x| < a $$
 
-$$ -a < x < a , \hspace{1cm} a > 0$$
+$$ -a < x < a , \qquad a > 0$$
 
 ### Limits Involving Infinity
 

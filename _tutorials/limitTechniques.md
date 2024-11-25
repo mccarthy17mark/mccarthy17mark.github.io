@@ -14,7 +14,7 @@ The first step to any math problem ought to be a vibe check. Is there anything w
 
 When limits are concerned, we particularly want to be careful near the "interesting regions" of a function. Things like divisions by zero, or transitions between definitions of a piece-wise function, or asymptotes of a tangent function, or logarithms of values at or below zero, or square roots of negative numbers, or... All of these kinds of situations should give us signals that the problem we want to solve might require more thought than a simple algorithmic response.
 
-### Plug in the Limit
+### Substitution
 
 The vast majority of the time, the following is true:
 
@@ -49,15 +49,15 @@ When dealing with limits we often encounter one of the seven indeterminate forms
 
 The indeterminate forms are as follows:
 
-$$ \frac{0}{0}, \frac{\infty}{\infty}, \infty - \infty, 0^{0}, 0^{\infty}, \infty^{0}, 1^{\infty}$$
+$$ \frac{0}{0},\  \frac{\infty}{\infty},\  \infty - \infty,\  0^{0},\  0^{\infty},\  \infty^{0},\  1^{\infty}$$
 
-although typically we encounter the first three. There are methods to convert each type of indeterminate form into all the others, which will be helpful when we introducte l'Hopital's Rule later.
+although typically we encounter the first three. There are methods to convert each type of indeterminate form into all the others, which will be helpful when we introducte l'H&#244;pital's Rule later.
 
 ### Cancellation
 
 A very frequent problem is when we have to take a limit of the following:
 
-$$ \lim_{x \to c} \frac{f(x)}{g(x)}, f(c)=g(c)=0 $$
+$$ \lim_{x \to c} \frac{f(x)}{g(x)},\quad f(c)=g(c)=0 $$
 
 Direct substitution results in $\frac{0}{0}$ which is one of our indeterminate forms. Although $f$ and $g$ could be any function, let's focus on the case where they are both polynomials first.
 
@@ -154,7 +154,7 @@ $$ = \frac{1}{6} $$
 
 This rationalization technique is not limited to square roots, as cube roots have a similar formula. There are other tricks which can extend the lifetime of this technique, but it is ultimately limited in usefulness.
 
-There is a more powerful technique known as l'Hopital's Rule which has fewer restrictions that can also deal with these problems. However l'Hopital's Rule requires the usage of the derivative, and the derivative's definition requires us to resolve limits involving $\frac{0}{0}$, so at least while defining the derivative we ought to use techniques like this.
+There is a more powerful technique known as l'H&#244;pital's Rule which has fewer restrictions that can also deal with these problems. However l'H&#244;pital's Rule requires the usage of the derivative, and the derivative's definition requires us to resolve limits involving $\frac{0}{0}$, so at least while defining the derivative we ought to use techniques like this.
 
 ### Ratios at Infinity
 
@@ -162,15 +162,15 @@ Another common source of indeterminate forms lies at $x=\pm\infty$. We frequentl
 
 For example, let's assume we have the ratio of two polynomials $f(x)$ and $g(x)$ which have degrees $d_f$ and $d_g$ and leading coefficients $a_f$ and $a_g$ respectively. We can make the following conclusions:
 
-$$ \lim_{x \to \infty} \frac{f(x)}{g(x)} = \text{sgn}\left(\frac{a_f}{a_g}\right)\infty \hspace{0.5cm} \text{if} \hspace{0.2cm} d_f>d_g $$
+$$ \lim_{x \to \infty} \frac{f(x)}{g(x)} = \text{sgn}\left(\frac{a_f}{a_g}\right)\infty \quad \text{if} \  d_f>d_g $$
 
-$$ \lim_{x \to \infty} \frac{f(x)}{g(x)} = 0 \hspace{0.5cm} \text{if}\hspace{0.2cm} d_f<d_g $$
+$$ \lim_{x \to \infty} \frac{f(x)}{g(x)} = 0 \quad \text{if}\  d_f<d_g $$
 
-$$ \lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{a_f}{a_g} \hspace{0.5cm}\text{if} \hspace{0.2cm}d_f=d_g $$
+$$ \lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{a_f}{a_g} \quad\text{if} \ d_f=d_g $$
 
 The way I usually like to prove this is by multiplying the limit by:
 
-$$ \frac{\frac{1}{x^d}}{\frac{1}{x^d}} \hspace{0.5cm} \text{where}\hspace{0.2cm} d=\text{max}(d_f,d_g) $$
+$$ \frac{\frac{1}{x^d}}{\frac{1}{x^d}} \quad \text{where}\  d=\text{max}(d_f,d_g) $$
 
 <details class="exampleBox">
 <summary>
@@ -231,8 +231,68 @@ $$ = \frac{a_1}{a_2} $$
 </details>
 
 
-### L'Hopital's Rule
+### L'H&#244;pital's Rule
 
 ### Taylor Series Expansions
 
 ### Squeeze Theorem
+
+Congratulations, you have stumbled upon one of the gems of interestingly named concepts in math! It's not quite as good as the Hairy Ball Theorem, but we take what we can get.
+
+The main idea behind squeeze theorem is that if a limit is difficult to evaluate, we can occasionally find two other enveloping functions that are simpler to evaluate and provide some constraints. This is especially useful when the two enveloping functions meet and we can deduce the value of the limit without ever tackling it directly.
+
+In mathier terms, let's introduce a function $f(x)$, and two enveloping functions $f_-(x)$ and $f_+(x)$. These functions don't need to envelope over all $x \in \mathbb{R}$, just merely some interval $I$ that contains our limit $x=c$. The squeeze theorem looks like this:
+
+$$ \text{Let} \quad f_-(x)\leq f(x) \leq f_+(x) \quad \forall x \in I $$
+
+$$ \text{If} \quad \lim_{x \to c} f_-(x) = \lim_{x \to c} f_+(x) = L, \ c \in I $$
+
+$$ \text{Then} \quad \lim_{x \to c} f(x) = L $$
+
+The reasoning behind this should be obvious, but despite the simplicity of the idea, there are some limits where this theorem is indispensable.
+
+Very frequently this theorem is used for the trigonometric functions, taking advantage of some version of the following:
+
+$$ -1 \leq \sin(x) \leq 1 $$
+
+$$ -1 \leq \cos(x) \leq 1 $$
+
+<details class="exampleBox">
+<summary>
+
+$$ \lim_{x \to \infty} \sin(x)e^{-x} $$
+
+</summary>
+<hr>
+
+As always let's try substitution
+
+$$  = \lim_{x \to \infty} \sin(\infty)e^{-\infty} $$
+
+We have two factors to contend with, and the $\sin(\infty)$ factor is poorly defined. It's unclear how we should treat this. A Taylor series expansion of $\sin(\infty)$ will give us the $\infty-\infty$ indeterminate form, and there doesn't appear to be any solution that l'H&#244;pital's rule can provide either.
+
+Still, we might guess at the result based on the following:
+
+$$ -1 \leq \sin(x) \leq 1, \quad \forall x \in \mathbb{R} $$
+
+$$ \lim_{x \to \infty} e^{-\infty} = 0 $$
+
+which implies that we have something between -1 and 1 multiplied by zero, giving us a reasonable guess that the answer is zero.
+
+We can prove this definitively using squeeze theorem. Let's create two enveloping functions:
+
+$$ f(x) = \sin(x)e^{-x} $$
+
+$$ f_-(x) = -e^{-x} $$
+
+$$ f_+(x) = e^{-x} $$
+
+$$ f_-(x)\leq f(x) \leq f_+(x) \quad \forall x \in \mathbb{R} $$
+
+And now we can apply squeeze theorem:
+
+$$ \lim_{x \to \infty} f_-(x) = \lim_{x \to \infty} f_+(x) = 0 $$
+
+$$ \implies \lim_{x \to \infty} f(x) = 0 $$ 
+
+</details>
