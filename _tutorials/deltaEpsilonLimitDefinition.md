@@ -18,11 +18,17 @@ $$ 0 < |x - c| < \delta $$
 
 then the following is also satisfied
 
-$$ 0 < |f(x) - L| < \epsilon $$
+$$ |f(x) - L| < \epsilon $$
 
 If that supposition is true we define the following:
 
 $$ \lim_{x\to c} f(x) = L $$
+
+We can put our $\epsilon$ and $\delta$ restrictions in a perhaps clearer way:
+
+$$ c - \delta < x < c \text{or} c < x < c+\delta $$
+
+$$ L - \epsilon  < f(x) < L + \epsilon $$
 
 There is one more restriction that's really just for the math nerds... $f(x)$ must be defined on some interval around $c$ but not necessarily including $c$ itself.
 
@@ -49,15 +55,15 @@ $$ 0 < |x - c| < \delta $$
 
 Let's recreate that in terms of our restriction on $\epsilon$:
 
-$$ 0 < |f(x) - L| < \epsilon $$
+$$ |f(x) - L| < \epsilon $$
 
-$$ 0 < |mx+b - (mc+b)| < \epsilon $$
+$$ |mx+b - (mc+b)| < \epsilon $$
 
-$$ 0 < |m (x - c)| < \epsilon $$
+$$ |m (x - c)| < \epsilon $$
 
-$$ 0 < |m| |x - c| < \epsilon $$
+$$ |m| |x - c| < \epsilon $$
 
-$$ 0 < |x - c| < \frac{\epsilon}{|m|} $$
+$$ |x - c| < \frac{\epsilon}{|m|} $$
 
 We now have an inequality that looks very similar to our original restriction for $\delta$. We proceed to pick a suitable value for $\delta$ that is in terms of our $\epsilon$ and show that this value will work regardless of the $\epsilon$ chosen and therefore the limit is actually a limit.
 
@@ -81,11 +87,11 @@ $$ 0 < |x - 2| < \delta $$
 
 Now let's try to recreate that with $\epsilon$.
 
-$$ 0 < |f(x) - L| < \epsilon $$
+$$ |f(x) - L| < \epsilon $$
 
-$$ 0 < |3x+4 - 1| < \epsilon $$
+$$ |3x+4 - 1| < \epsilon $$
 
-$$ 0 < 3|x+1| < \epsilon $$
+$$ 3|x+1| < \epsilon $$
 
 $$ -\epsilon < 3(x+1) < \epsilon $$
 
@@ -141,3 +147,39 @@ If that supposition is true we define the following:
 $$ \lim_{x\to \infty} f(x) = \infty $$
 
 Using this definition at negative infinity simply requires exchanging some $>$ symbols for $<$ symbols.
+
+### One-sided Limits
+
+We often want to know the behaviour of a function as we approach a value from one side, either below or above. Since it's so handy, it's good to have it well-defined here:
+
+Suppose, for any $\epsilon > 0$ there exists a $\delta > 0$ such that for all the values of $x$ statisfying the following
+
+$$ c - \delta < x < c $$
+
+then the following is also satisfied
+
+$$ |f(x) - L| < \epsilon $$
+
+If that supposition is true we define the following:
+
+$$ \lim_{x \to c^{-}} f(x) = L $$
+
+That is to say, if we can always find some tiny $\delta$ where all the values of $x$ within one $\delta$ less than $c$ produce an $f(x)$ within a range of some *arbitrarily* tiny $\epsilon$ from $L$, then we have our limit from the left.
+
+A similar process using 
+
+$$ c < x < c+\delta $$
+
+gives us our limit from the right:
+
+$$ \lim_{x \to c^{+}} f(x) = L $$
+
+Using these two one-sided limits together, it's easy to combine them to arrive back at our original definition:
+
+If:
+
+$$ \lim_{x \to c^{-}} f(x) = \lim_{x \to c^{+}} f(x) = L $$
+
+then
+
+$$ \lim_{x \to c} f(x) = L $$

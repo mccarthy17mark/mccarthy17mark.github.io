@@ -40,6 +40,7 @@ Some examples are below:
 <summary>
 $$ \int xe^{x} dx $$
 </summary>
+<hr>
 This integrand is unable to be solved by substitution, so we look to integration by parts. We see that there is a polynomial portion $x$ that will become simpler with differentiation, and an exponential portion $e^{x}$ that does not become more complicated with integration. This lets us easily choose our $u$ and $dv$:
 
 $$ u = x \hspace{1cm} dv = e^{x}dx $$
@@ -60,23 +61,24 @@ $$ = (x-1)e^{x} + C $$
 
 <details class="exampleBox">
 <summary>
-$$ \int x^{2}cos(x) dx $$
+$$ \int x^{2}\cos(x) dx $$
 </summary>
+<hr>
 Our choice of $u$ and $dv$ should be pretty straight-forward, except for one reservation: the polynomial portion becomes simpler with differentiation but does not disappear. Often integration by parts forces us to repeatedly use it to get a polynomial to give up and differentiate itself away.
 
-$$ u = x^{2} \hspace{1cm} dv = cos(x)dx $$
+$$ u = x^{2} \hspace{1cm} dv = \cos(x)dx $$
 
-$$ du = 2xdx \hspace{1cm} v = sin(x) $$
+$$ du = 2xdx \hspace{1cm} v = \sin(x) $$
 
-$$ \int x^{2}cos(x) dx = x^{2}sin(x) - \int 2xsin(x)dx $$
+$$ \int x^{2}\cos(x) dx = x^{2}\sin(x) - \int 2x\sin(x)dx $$
 
-$$ u = x \hspace{1cm} dv = sin(x)dx $$
+$$ u = x \hspace{1cm} dv = \sin(x)dx $$
 
-$$ du = dx \hspace{1cm} v = -cos(x) $$
+$$ du = dx \hspace{1cm} v = -\cos(x) $$
 
-$$ \int x^{2}cos(x) dx = x^{2}sin(x) - 2\left[-xcos(x) - \int -cos(x)dx\right] $$
+$$ \int x^{2}\cos(x) dx = x^{2}\sin(x) - 2\left[-x\cos(x) - \int -\cos(x)dx\right] $$
 
-$$ = x^{2}sin(x) + 2xcos(x) - 2sin(x) + C $$
+$$ = x^{2}\sin(x) + 2x\cos(x) - 2\sin(x) + C $$
 
 </details>
 
@@ -86,6 +88,7 @@ Sometimes the choice of $u$ and $v$ are less obvious. It often requires a bit of
 <summary>
 $$ \int ln(x) dx $$
 </summary>
+<hr>
 This feels like it should be something elementary, like it was forgotten from our standard formulae, but it's actually quite a strange integral. Noticing that integration by parts is the best method is especially difficult here unless you've seen it done before.
 
 $$ u = ln(x) \hspace{1cm} dv = dx $$
@@ -106,27 +109,28 @@ There is another way to resolve an integral for integration by parts which comes
 
 <details class="exampleBox">
 <summary>
-$$ \int sin(x)e^{x} dx $$
+$$ \int \sin(x)e^{x} dx $$
 </summary>
+<hr>
 This integral actually allows us to pick either the trigonometric factor or the exponential factor for both $u$ and $dv$. The result is ultimately the same.
 
-$$ u = sin(x) \hspace{1cm} dv = e^{x} dx $$
+$$ u = \sin(x) \hspace{1cm} dv = e^{x} dx $$
 
-$$ du = cos(x) dx \hspace{1cm} v = e^{x} $$
+$$ du = \cos(x) dx \hspace{1cm} v = e^{x} $$
 
-$$ \int sin(x)e^{x} dx = sin(x)e^{x} - \int e^{x}cos(x)dx $$
+$$ \int \sin(x)e^{x} dx = \sin(x)e^{x} - \int e^{x}\cos(x)dx $$
 
-$$ u = cos(x) \hspace{1cm} dv = e^{x} dx $$
+$$ u = \cos(x) \hspace{1cm} dv = e^{x} dx $$
 
-$$ du = -sin(x) dx \hspace{1cm} v = e^{x} $$
+$$ du = -\sin(x) dx \hspace{1cm} v = e^{x} $$
 
-$$ \int sin(x)e^{x} dx = sin(x)e^{x} - \left[cos(x)e^{x} - \int e^{x}(-sin(x))dx\right] $$
+$$ \int \sin(x)e^{x} dx = \sin(x)e^{x} - \left[\cos(x)e^{x} - \int e^{x}(-\sin(x))dx\right] $$
 
-$$ \int sin(x)e^{x} dx = e^{x}(sin(x) - cos(x)) - \int sin(x)e^{x}dx $$
+$$ \int \sin(x)e^{x} dx = e^{x}(\sin(x) - \cos(x)) - \int \sin(x)e^{x}dx $$
 
-$$ 2\int sin(x)e^{x} dx = e^{x}(sin(x) - cos(x)) $$
+$$ 2\int \sin(x)e^{x} dx = e^{x}(\sin(x) - \cos(x)) $$
 
-$$ \int sin(x)e^{x} dx = \frac{e^{x}(sin(x) - cos(x))}{2} $$
+$$ \int \sin(x)e^{x} dx = \frac{e^{x}(\sin(x) - \cos(x))}{2} $$
 
 </details>
 
