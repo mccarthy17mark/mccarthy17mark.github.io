@@ -15,8 +15,8 @@ layout: default
 
 {% for tutorial in site.tutorials %}
 {% if tutorial.pageId == page.parentId %}
-<h3> Return to <a href={{tutorial.url}}>{{ tutorial.title }}</a>
-</h3>
+<h2> Return to <a href={{tutorial.url}}>{{ tutorial.title }}</a>
+</h2>
 {% endif %}
 {% endfor %}
 
@@ -43,11 +43,11 @@ layout: default
 
 {% if hasChildren == true %}
 
-<h3> <a name="childTut"></a> Further tutorials: </h3>
+<h2> <a name="childTut"></a> Further tutorials: </h2>
 
 {% for tutorial in site.tutorials %}
 {% if page.pageId == tutorial.parentId %}
-<h3><a href={{tutorial.url}}>{{ tutorial.title }}</a></h3>
+<h2><a href={{tutorial.url}}>{{ tutorial.title }}</a></h2>
 {% endif %}
 {% endfor %}
 

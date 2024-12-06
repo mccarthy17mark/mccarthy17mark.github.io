@@ -8,7 +8,7 @@ usemathjax: true
 
 {% include toc.html %}
 
-### Definition
+# Definition
 
 The main way to rigourously define the limit is using what's called the $\delta - \epsilon$ definition. It reads as follows:
 
@@ -41,7 +41,7 @@ To achieve this, we typically follow the same steps:
 1. Use the restriction on $\epsilon$ to find a restriction on $\delta$ in terms of $\epsilon$
 1. Use the new restriction from the previous step in our definition of $\delta$ to show that our restriction on $\epsilon$ is still valid
 
-### Linear example
+# Linear example
 
 That was another confusing list of sentences, so let's show this in practice using a linear example. Show that the following is true:
 
@@ -75,7 +75,7 @@ $$ 0 < |mx+b - (mc+b)| < \epsilon $$
 
 $$ 0 < |f(x) - L| < \epsilon \Rightarrow \lim_{x->c} f(x) = mc+b \qquad \blacksquare $$
 
-### Linear Counter-Example
+# Linear Counter-Example
 
 Sometimes it's more instructive to see how things can go wrong rather than only seeing when they work out. Let's do an example where we have provided the incorrect value for the limit and see if we can prove that it does not satisfy the $\delta - \epsilon$ definition.
 
@@ -111,7 +111,7 @@ and yet we're finding we need to restrict our $x$ in a way that cannot be satisf
 
 $$ \lim_{x->2} 3x+4 \neq 1 $$ 
 
-### $\delta - \epsilon$ Beyond Linear Problems
+# $\delta - \epsilon$ Beyond Linear Problems
 
 Once we start dealing with more complicated functions, this proof can become much more complicated. I could go through more examples, but some earnest googling will likely do the trick as well.
 
@@ -123,7 +123,7 @@ $$ 0 < |x| < a $$
 
 $$ -a < x < a , \qquad a > 0$$
 
-### Limits Involving Infinity
+# Limits Involving Infinity
 
 The $\delta - \epsilon$ definition needs some slight tweaking when infinity is involved. There's two situations that need handling:
 
@@ -148,7 +148,7 @@ $$ \lim_{x\to \infty} f(x) = \infty $$
 
 Using this definition at negative infinity simply requires exchanging some $>$ symbols for $<$ symbols.
 
-### One-sided Limits
+# One-sided Limits
 
 We often want to know the behaviour of a function as we approach a value from one side, either below or above. Since it's so handy, it's good to have it well-defined here:
 

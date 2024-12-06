@@ -8,7 +8,7 @@ usemathjax: true
 
 {% include toc.html %}
 
-### Derivation
+# Derivation
 
 Integration by parts is a way to rewrite some integrals in terms of a way which often makes them simpler to resolve. It's an extension of the product rule:
 
@@ -30,7 +30,7 @@ $$ \int_{a}^{b} udv =  uv \bigg\rvert_{a}^{b} - \int_{a}^{b} vdu $$
 
 <br>
 
-### Typical usage
+# Typical usage
 
 What's the point of this formula? As with most integration tools, it's a technique which is only useful in certain situations, and identifying those situations has more to do with pattern recognition than anything else. Since it doesn't directly reduce the number of integrals we need to solve, we usually reach for this tool when integration by substitution will not suffice. Typically integration by parts comes in handy when there is an integrand with an easily differentiatable portion multiplied by an easily integrable portion. We let $u$ represent something that gets simpler with differentiation, and $dv$ be something that doesn't get more complicated.
 
