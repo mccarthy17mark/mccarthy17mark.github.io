@@ -10,17 +10,17 @@ published: false
 
 {% include toc.html %}
 
-### The level of this overview
+# The level of this overview
 
 This tutorial should cover everything you'd see in a first year undergrad course. As one dives deeper into physics, we see alternative methods of calculating and understanding kinematics, but this approach is usually how we begin. The assumption is that the basics of calculus is known.
 
-### Galilean Relativity
+# Galilean Relativity
 
-### Time
+# Time
 
 There is a lot to be said about how physicists like to handle time. 
 
-### Position
+# Position
 
 We denote position with a variety of terms. It's important to note that position is a vector quantity, so three variables are needed to fully describe it. I've seen $(x, y, z)$, $\vec{d}$, $\vec{r}$, and a few others. The most common and sensible option, and the one I'll use is the following:
 
@@ -30,7 +30,7 @@ Of course this is a representation for a cartesian coordinate system; it looks d
 
 Position alone doesn't mean much, we need to build up our vocabulary of concepts to start making interesting conclusions.
 
-### Displacement & Distance
+# Displacement & Distance
 
 These two concepts are differing ways that we use to compare two different positions. These positions could represent anything. For example: the position of two different objects, the positions of either end of the same object, or the position of the same object at different moments in time.
 
@@ -50,5 +50,5 @@ $$ = \sqrt{(x_{A0} - x_{B0})^{2} + (x_{A1} - x_{B1})^{2} + (x_{A2} - x_{B2})^{2}
 
 In one dimension, this simplifies to only being an absolute value.
 
-### Velocity and Speed
+# Velocity and Speed
 
