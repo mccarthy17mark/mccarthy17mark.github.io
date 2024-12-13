@@ -5,7 +5,7 @@ pageId: derivativeDefinition
 parentId: math
 usemathjax: true
 
-published: false
+published: true
 ---
 
 {% include toc.html %}
@@ -91,12 +91,20 @@ It's worth discussing what it looks like for a function to be differentiable and
 $$ \lim_{x \to c^-} f(x) = f(x) = \lim_{x \to c^+} f(x) $$
 
 <ol start="3">
-<li> $f(x)$ needs to be *smooth*. No sharp corners, no kinks. In mathematical terms, this means that the derivative must be continuous. It's odd to talk about needing continuity for the derivative while determining the derivative, but let's look again at how the condition for continuity works, except with derivatives instead:
+<li> $f(x)$ needs to be sufficiently *smooth*. No sharp corners, no kinks. In mathematical terms, this means that the derivative must be continuous. It's odd to talk about needing continuity for the derivative while determining the derivative, but let's look again at how the condition for continuity works, except with derivatives instead:
 
 $$ \lim_{x \to c^-} f'(x) = f'(x) = \lim_{x \to c^+} f'(x) $$
 
 The middle expression is the one we're trying to determine if it's possible to calculate, but we can only do so when the left limit is equal to the right limit. A quick glance at a plot of the function can usually tell you whether or not this is likely to work out.
 
+Technically *smooth* usually means infinitely differentiable, ie: you can differentiate the function repeatedly forever, but such nitpicking doesn't help when we're looking at this for the first time. 
+
+<details class="exampleBox">
+<summary>
+There are very rare exceptions
+</summary>
+<hr>
+</details>
 Technically speaking, there are differentiable functions that do not have continuous derivatives, but these functions are pretty wacky and not likely to be seen describing any physical reality. If you need to determine the differentiability of a crazy function like the following, then you are either a mathematician or you have bigger problems:
 
 $$ f(x) = \begin{cases} x^2 \sin(\frac{1}{x}) & x \neq 0 \\ 0 & x=0 \end{cases} $$
