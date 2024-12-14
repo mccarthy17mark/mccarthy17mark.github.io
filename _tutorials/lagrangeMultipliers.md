@@ -26,7 +26,7 @@ The method of Lagrange multipliers allows us to avoid any reparameterization, an
 
 To find the maximum of $f(\vec{x})$ if given $i$ different constraining functions $g_i(\vec{x})=k_i$ where $k_i \in \mathbb{R}$, solve the system of equations:
 
-$$ \nabla f(\vec{x}) &= \sum_i \lambda_i \nabla g_i(\vec{x}) $$
+$$ \nabla f(\vec{x}) = \sum_i \lambda_i \nabla g_i(\vec{x}) $$
 
 $$ g_i(\vec{x})=k_i $$
 
@@ -63,9 +63,9 @@ $$ g(x,y) = x^2+y^2 $$
 
 First let's find our gradients:
 
-$$ \nabla f(x,y) = \begin{bmatrix} y || x \end{bmatrix} $$
+$$ \nabla f(x,y) = \begin{bmatrix} y \\ x \end{bmatrix} $$
 
-$$ \nabla g(x,y) = \begin{bmatrix} 2x || 2y \end{bmatrix} $$
+$$ \nabla g(x,y) = \begin{bmatrix} 2x \\ 2y \end{bmatrix} $$
 
 Now let's write our system of equations:
 
@@ -113,9 +113,9 @@ $$ g(x,y) = x^2+y^2 = 4 $$
 
 Our gradients are:
 
-$$ \nabla f(x,y) = \begin{bmatrix} 2xy || x^2 \end{bmatrix} $$
+$$ \nabla f(x,y) = \begin{bmatrix} 2xy \\ x^2 \end{bmatrix} $$
 
-$$ \nabla g(x,y) = \begin{bmatrix} 2x || 2y \end{bmatrix} $$
+$$ \nabla g(x,y) = \begin{bmatrix} 2x \\ 2y \end{bmatrix} $$
 
 Our system of equations, rewritten for the problem, becomes:
 
