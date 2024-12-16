@@ -112,25 +112,7 @@ $$ f(x) = \begin{cases} x^2 \sin(\frac{1}{x}) & x \neq 0 \\ 0 & x=0 \end{cases} 
 </li>
 </ol>
 
-# Properties of Derivatives
-
-
-
 # !! Everything below should probably move to another Tutorial !!
-
-# Linearity
-
-# Power Rule
-
-# Product Rule
-
-# Quotient Rule
-
-# Chain Rule
-
-# Derivatives of Inverse Functions
-
-# Derivatives of Popular Functions
 
 # Implicit Differentiation
 
