@@ -40,7 +40,7 @@ Now let's plug in our linear set-up and hope it works out the way we'd like:
 
 $$ f(x) = ac(x)+bd(x) $$
 
-$$ \begin{align} \frac{df(x)}{dx} &= \lim_{h \to 0} \frac{(ac(x+h)+bd(x+h))-(ac(x)-bd(x))}{h} \\ &= \lim_{h \to 0} \frac{a(c(x+h)-c(x))+b(d(x+h)-d(x))}{h} \\ &= a \lim_{h \to 0} \frac{c(x+h)-c(x)}{h} +b\lim_{h \to 0}\frac{d(x+h)-d(x)}{h} \\ &= a c'(x) +b d'(x) \end{align} $$
+$$ \begin{align} \frac{df(x)}{dx} &= \lim_{h \to 0} \frac{[ac(x+h)+bd(x+h)]-[ac(x)-bd(x)]}{h} \\ &= \lim_{h \to 0} \frac{a[c(x+h)-c(x)]+b[d(x+h)-d(x)]}{h} \\ &= a \lim_{h \to 0} \frac{c(x+h)-c(x)}{h} +b\lim_{h \to 0}\frac{d(x+h)-d(x)}{h} \\ &= a c'(x) +b d'(x) \end{align} $$
 
 </details>
 
@@ -96,9 +96,82 @@ $$ \left[ f(g(x)) \right]' = f'(g(x))g'(x) $$
 
 $$ \frac{df(x)}{dx} = \frac{df(u)}{du} \frac{du(x)}{dx} $$
 
+<details class="exampleBox">
+<summary>
+Proof of the chain rule
+</summary>
+<hr>
+
+As always, it's good to start with the derivative definition:
+
+$$ \frac{df(x)}{dx} = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} $$
+
+Now let's plug in our function. Let's first show a proof that works if and only if $g'(x) \neq 0$:
+
+$$ f(x) = f(g(x)) $$
+
+$$ \begin{align} \frac{df(x)}{dx} &= \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{h} \\ &= \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{h}\frac{g(x+h)-g(x)}{g(x+h)-g(x)} \end{align} $$
+
+Adding this new factor only works when we don't have a division by zero. It's easy to see that requirement is fulfilled so long as the derivative $g'(x)$ is non-zero at $x$. We'll discuss the implications of this and the zero-derivative case later.
+
+$$ \begin{align} &= \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{g(x+h)-g(x)}\lim_{h \to 0}\frac{g(x+h)-g(x)}{h} \\ &= \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{g(x+h)-g(x)}\lim_{h \to 0}\frac{g(x+h)-g(x)}{h} \\ &= \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{g(x+h)-g(x)} \frac{dg(x)}{dx} \end{align} $$
+
+Now our first factor looks close to what we want, but the current form makes the connection a bit obscured. Let's make some substitutions to better show the proof:
+
+$$ g_1 = g(x) \qquad g_2 = g(x+h) $$
+
+$$ h \to 0 \Rightarrow g_2 \to g_1 $$
+
+$$ \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{g(x+h)-g(x)} = \lim_{g2 \to g1} \frac{f(g_2)-f(g_1)}{g_2-g_1} $$
+
+This should look pretty familiar, it's a step from when we first derived the derivative! Recall that we made the following reparameterization and arrived with our familiar derivative, except we should probably use a different letter than $h$ since we've already used it in this proof:
+
+$$ g = g_1 \qquad H = g_2-g_1 $$
+
+$$ \begin{align} \lim_{g2 \to g1} \frac{f(g_2)-f(g_1)}{g_2-g_1} &= \lim_{H \to 0} \frac{f(g+H)-f(g)}{H} \\ &= \frac{df(g)}{dg} \end{align}$$
+
+Putting it together, we obtain the proof we're looking for:
+
+$$ \begin{align} \frac{df(g(x))}{dx} &=\lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{g(x+h)-g(x)} g'(x) \\ &= \frac{df(g)}{dg} \frac{dg(x)}{dx} \end{align} $$
+
+Great! Now we just need to deal with the case that $g(x+h)=g(x)$. This is pretty straight forward to do unthinkingly, but it helps a lot to see that $g(x)$ is essentially a constant function, at least locally. It should be easy to see that $\frac{dg}{dx}=0$ as well.
+
+$$ \begin{align} \frac{df(x)}{dx} &= \lim_{h \to 0} \frac{f(g(x+h))-f(g(x))}{h} \\ &= \lim_{h \to 0} \frac{0}{h} \\ &= 0 \\ &= \frac{df(g)}{dg} \frac{dg(x)}{dx} \end{align} $$
+
+Now we've shown all cases lead to the same result!
+
+</details>
+
 # Derivatives of Inverse Functions
 
-$$ f^{-1}(x) = \frac{1}{f'(f^{-1}(x))} $$
+This next rule is a lot less commonly used since it mainly applies to derivations creating derivatives of particular functions, and not to applications that involve derivatives. Regardless, it's still handy to know of its existence.
+
+$$ (f^{-1}(x))' = \frac{1}{f'(f^{-1}(x))} $$
+
+We'll use this later to find the derivatives of the inverse trigonometric functions.
+
+<details class="exampleBox">
+<summary>
+Derivation of inverse derivative formula
+</summary>
+<hr>
+We won't need to go back to the definition of the derivative for this one, instead we mainly need chain rule. The proof is very straight forward, write $x$ in terms of $y$ to remove the inverse function, differentiate, and solve for $y'$.
+
+$$ y = f^{-1}(x) $$
+
+$$ x = f(y) $$
+
+$$ \frac{d}{dx} x = \frac{d}{dx} f(y) $$
+
+$$ 1 = f'(y)y' $$
+
+$$ y' = \frac{1}{f'(y)} $$
+
+$$ (f^{-1}(x))' = \frac{1}{f'(f^{-1}(x))} $$
+
+This derivation is simple enough that the derivation might be easier to remember than the formula!
+
+</details>
 
 # Derivatives of Popular Functions
 
@@ -142,7 +215,7 @@ Note there are a lot of extremely common functions, all of which are just specia
 
 $$ x' = 1(x^(1-1)) = 1 $$
 
-$$ \left[\frac{1}{x}\right]' = [x^{-1}]' = -x^{-2} $$
+$$ \left[\frac{1}{x}\right]' = [x^{-1}]' = -x^{-2} = -\frac{1}{x^2} $$
 
 $$ \left[\sqrt{x}\right]' = \left[x^{\frac{1}{2}}\right]' = \frac{1}{2} x^{-\frac{1}{2}} = \frac{1}{2\sqrt{x}} $$
 
@@ -172,7 +245,7 @@ $$ [\sinh(x)]' = \cosh(x) $$
 
 $$ [\cosh(x)]' = \sinh(x) $$
 
-And of course, there is a class of function that rarely appears, whose derivative is not worth memorizing, but is worth knowing how to derive:
+There is a class of function that rarely appears, whose derivative is not worth memorizing, but is worth knowing how to derive. The most important idea is that both power rule and treating these functions like exponentials are incorrect approaches. These functions need logarithmic differentiation:
 
 $$ \left[f(x)^{g(x)}\right]' = f(x)^{g(x)} \left[g'(x)\ln(f(x)) + \frac{g(x)f'(x)}{f(x)}\right] $$
 

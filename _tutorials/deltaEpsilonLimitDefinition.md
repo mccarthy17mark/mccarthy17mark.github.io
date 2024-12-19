@@ -26,7 +26,7 @@ $$ \lim_{x\to c} f(x) = L $$
 
 We can put our $\epsilon$ and $\delta$ restrictions in a perhaps clearer way:
 
-$$ c - \delta < x < c \text{or} c < x < c+\delta $$
+$$ c - \delta < x < c \ \text{or} \  c < x < c+\delta $$
 
 $$ L - \epsilon  < f(x) < L + \epsilon $$
 

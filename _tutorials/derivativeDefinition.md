@@ -18,7 +18,7 @@ The derivative refers to sensitivity, one variable is sensitive to another when 
 
 It is also common to see derivatives referred to as the slope of a tangent line at a point. This is true, but I find this is only rarely a helpful fact to know. Usually it's taught because some educator wants to use a graphical derivation for the derivative, but I feel like this misses the key idea. It's not about some coincidental property involving tangent lines, it's about finding out how different quantities are linked.
 
-# Motivation & Core Idea
+# A Simple Example
 
 The most straight-forward way to think about understanding how different variables affect one another might be to think about a ratio between them. For example, the ratio of dimes in my possession to the amount of money in my possession is a pretty important relationship to know:
 
@@ -104,10 +104,12 @@ Technically *smooth* usually means infinitely differentiable, ie: you can differ
 There are very rare exceptions
 </summary>
 <hr>
-</details>
 Technically speaking, there are differentiable functions that do not have continuous derivatives, but these functions are pretty wacky and not likely to be seen describing any physical reality. If you need to determine the differentiability of a crazy function like the following, then you are either a mathematician or you have bigger problems:
 
 $$ f(x) = \begin{cases} x^2 \sin(\frac{1}{x}) & x \neq 0 \\ 0 & x=0 \end{cases} $$
+
+</details>
+
 
 </li>
 </ol>

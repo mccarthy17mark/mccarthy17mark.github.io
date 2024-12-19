@@ -91,7 +91,7 @@ Using the third equation, we get the expected result:
 
 $$ 2x^2 = 1 $$
 
-$$ x = \pm \frac{1/\sqrt{2}} $$
+$$ x = \pm \frac{1}{\sqrt{2}} $$
 
 A similar process can be followed for $y$ to get the same result. This method gives us four points for $(x,y)$ thanks to the $\pm$ signs. We can easily evaluate them in $f(x,y)$ to check which are maxima and which are minima.
 </details>
