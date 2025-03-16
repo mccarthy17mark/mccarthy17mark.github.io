@@ -12,13 +12,21 @@ published: false
 
 # The level of this overview
 
-This tutorial should cover everything you'd see in a first year undergrad course. As one dives deeper into physics, we see alternative methods of calculating and understanding kinematics, but this approach is usually how we begin. The assumption is that the basics of calculus is known.
+This tutorial should cover everything you'd see in a first year undergrad course. As one dives deeper into physics, we see alternative methods of calculating and understanding kinematics, but this approach is usually how we begin. The assumption is that the basics of calculus is known. This is also mostly definitions, but these definitions matter and are built upon greatly later.
 
 # Galilean Relativity
 
+
+
 # Time
 
-There is a lot to be said about how physicists like to handle time. 
+There is a lot to be said about how physicists like to handle time. At this point, we go with the naive version of time... **check the name** galilean time. This model says that there exists some universal time that all of everyone everywhere experiences. The flow of time is independent of everything else. In this model, only one very accurate clock could be used to describe unambiguously the time of all things everywhere, and we could always refer to this one clock whenever we refer to time.
+
+This assumption breaks down in two situations:
+1. When objects start moving very fast (some significant fraction of the speed of light),
+1. When space-time becomes significantly curved, such as near an extremely large mass (like a neutron star).
+
+Both of these issues are incredibly rare phenomena to consider, and both are handled through more advanced models of relativity.
 
 # Position
 
@@ -31,6 +39,8 @@ Of course this is a representation for a cartesian coordinate system; it looks d
 Position alone doesn't mean much, we need to build up our vocabulary of concepts to start making interesting conclusions.
 
 # Displacement & Distance
+
+## In General
 
 These two concepts are differing ways that we use to compare two different positions. These positions could represent anything. For example: the position of two different objects, the positions of either end of the same object, or the position of the same object at different moments in time.
 
@@ -48,7 +58,15 @@ $$ |\vec{x_{A/B}}| = ||\vec{x_{A}} - \vec{x_{B}}|| $$
 
 $$ = \sqrt{(x_{A0} - x_{B0})^{2} + (x_{A1} - x_{B1})^{2} + (x_{A2} - x_{B2})^{2}}$$
 
-In one dimension, this simplifies to only being an absolute value.
+In one dimension, this simplifies to only being an absolute value:
+
+$$ |x_{A/B}| = |\vec{x_{A}} - \vec{x_{B}}| $$
+
+<br>
+
+## Evaluation along a path
+
+Evaluating displacement and distance along a path requires a bit more nuance. 
 
 # Velocity and Speed
 

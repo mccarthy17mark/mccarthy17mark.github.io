@@ -1,0 +1,19 @@
+---
+title: Variational Calculus
+layout: tutorial
+pageId: variationalCalculus
+parentId: physics
+usemathjax: true
+
+published: false
+---
+
+{% include toc.html %}
+
+# The Core Idea
+
+A critical idea in classical mechanics, and a foundational component of quantum mechanics, springs out of something known as **variational calculus** or **the calculus of variations**. I find this area of analysis feels very specific: we are intensely analyzing one specific aspect of something that occurs to only some functions. But at the same time, because this analysis leads to the **principle of stationary action**, which leads to **Lagrangian mechanics** and ultimately **Hamiltonians**, it's surprisingly important and universal throughout physics.
+
+The key idea here is to imagine a *functional*, which is essentially a function of a function. Our goal with variational calculus is to find the functions that are the critical points of the functional. In other words, we want to find functions such that when we alter them by tiny amounts (the variation in the name), then there is no first-order changes in the output of the functional to that function. It's an optimization problem.
+
+# Derivation of Euler-Lagrange
